@@ -40,11 +40,12 @@ mkdir -p $build_dir/bin
 cp $dest_dir/caddy /app/bin/caddy
 ls $build_dir
 pwd
+ls $(pwd)
 
 
 # caddy_version=$($build_dir/bin/caddy version)
 # cp $build_dir/bin/caddy /app/bin/
-# cp bin/start-caddy /app/bin/
+cp $(pwd)/start-caddy $build_dir/bin/
 echo "-----> Installed ${caddy_version} to /app/bin"
 # echo "-----> Installed start-caddy to /app/bin"
 
