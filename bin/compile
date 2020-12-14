@@ -30,7 +30,7 @@ fetch_caddy() {
     echo "-----> Extracting $output..."
     echo $dest_dir
     ls -lh $dest_dir
-    cat "$output" | tar xsC "$dest_dir"
+    cat "$output" | tar xzC "$dest_dir"
 }
 
 
