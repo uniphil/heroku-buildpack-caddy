@@ -8,48 +8,10 @@ cache_dir=$2
 dest_dir="$cache_dir/caddy"
 
 echo "-----> Installing Caddy..."
-
-indent() {
-    sed -u 's/^/       /'
-}
-
-fetch_caddy() {
-    local version="${CADDY_VERSION:-2.2.1}"
-    local archive="caddy_${version}_linux_amd64.tar.gz"
-    local caddy_url="https://github.com/caddyserver/caddy/releases/download/v${version}/${archive}"
-    local output="$dest_dir/$archive"
-
-    mkdir -p "$dest_dir"
-
-    if [ -f "$output" ]; then
-        echo "Using cached $output..." | indent >&2
-    else
-        echo "-----> Downloading from $caddy_url..." >&2
-        curl -Lo "$output" "$caddy_url"
-    fi
-    echo "-----> Extracting $output..."
-    echo $dest_dir
-    ls -lh $dest_dir
-    cat "$output" | tar xzC "$dest_dir"
-}
-
-
-fetch_caddy
-
 mkdir -p $build_dir/bin
-
-echo "putting it in bin..."
-ls -lh $dest_dir
-ls -lh $dest_dir/caddy
-cp $dest_dir/caddy $build_dir/bin
-ls $build_dir/bin
-# pwd
-# ls $(pwd)
-
-
-# caddy_version=$($build_dir/bin/caddy version)
-# cp $build_dir/bin/caddy /app/bin/
+cp $(pwd)/caddy $build_dir/bin/
 cp $(pwd)/bin/start-caddy $build_dir/bin/
+caddy_version=$($build_dir/bin/caddy version)
 echo "-----> Installed ${caddy_version} to /app/bin"
 echo "-----> Installed start-caddy to /app/bin"
 
