@@ -6,6 +6,8 @@ set -e
 build_dir=$1
 cache_dir=$2
 
+echo "-----> Installing Caddy..."
+
 fetch_caddy() {
     local version="${CADDY_VERSION:-2.2.1}"
     local archive="caddy_${version}_linux_amd64.tar.gz"
@@ -15,14 +17,16 @@ fetch_caddy() {
     # if [ -f "$dest_path" ]; then
     #     echo -n "cat $dest_path"
     # else
-        echo "-----> Downloading Caddy from $caddy_url..." >&2
-        echo -n "curl -L $caddy_url"
+        # echo "-----> Downloading from $caddy_url..." >&2
+        echo -n "curl -sL $caddy_url"
     # fi
 }
 
 mkdir -p $build_dir/bin
 $(fetch_caddy) | tar xzC $build_dir/bin
-caddy_version=$($build_dir/bin/caddy -version)
+
+caddy_version=$($build_dir/bin/caddy version)
+cp $build_dir/bin/caddy /app/bin/caddy
 echo "-----> Installed ${caddy_version} to /app/bin"
 
 exit 0
