@@ -45,7 +45,8 @@ fi
   # Run caddy in the foreground
   # We also might expect a socket to be at something like /tmp/wsgi.socket.
   echo 'buildpack=caddy at=caddy-start'
-  /app/bin/caddy run --config /app/Caddyfile
+  erb /app/Caddyfile.json.erb > /app/Caddyfile.json
+  /app/bin/caddy run --config /app/Caddyfile.json
   echo 'caddy-start' >$psmgr
 ) &
 
