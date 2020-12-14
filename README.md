@@ -22,3 +22,8 @@ Example usage:
 
 The buildpack will detect that your app has a `Caddyfile` in the root and start caddy with that config file.
 To build your Single page app, etc. please use another build pack before this one.
+
+Buildpack Config Variables
+--------------------------
+
+The environment variable `CADDY_VERSION` overrides the default caddy version set by this buildpack (currently `2.2.1`). See the [releases page over at Caddy's GitHub repo](https://github.com/caddyserver/caddy/releases) for available versions.

@@ -7,7 +7,9 @@ build_dir=$1
 cache_dir=$2
 
 fetch_caddy() {
-    local caddy_url="https://caddyserver.com/download/linux/amd64"
+    local version="${CADDY_VERSION:-2.2.1}"
+    local archive="caddy_${version}_linux_amd64.tar.gz"
+    local caddy_url="https://github.com/caddyserver/caddy/releases/download/v${version}/${archive}"
     local dest_path="$cache_dir/caddy"
 
     if [ -f "$dest_path" ]; then
