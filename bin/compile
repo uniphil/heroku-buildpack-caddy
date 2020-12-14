@@ -37,7 +37,7 @@ fetch_caddy() {
 fetch_caddy
 
 mkdir -p $build_dir/bin
-cp $dest_dir/caddy /app/bin/caddy
+cp $dest_dir/caddy/caddy /app/bin/
 ls $build_dir
 pwd
 ls $(pwd)
