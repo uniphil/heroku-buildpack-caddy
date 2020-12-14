@@ -27,3 +27,5 @@ Buildpack Config Variables
 --------------------------
 
 The environment variable `CADDY_VERSION` overrides the default caddy version set by this buildpack (currently `2.2.1`). See the [releases page over at Caddy's GitHub repo](https://github.com/caddyserver/caddy/releases) for available versions.
+
+Your app will need to touch `/tmp/app-initialized` when it's ready for traffic, similar to the [nginx buildpack](https://github.com/heroku/heroku-buildpack-nginx/tree/38b77474edc6ac59b463a45e540b0aaec3277b44). See that buildpack also for how to define a Procfile with `bin/start-caddy`.

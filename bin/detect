@@ -3,9 +3,9 @@
 
 build_dir=$1
 
-if [ ! -f "$build_dir/Caddyfile" ]; then
-    exit 1
+if [ -f "$build_dir/Caddyfile" ]; then
+    echo 'Caddyfile'
+    exit 0
 fi
 
-echo 'Caddyfile'
-exit 0
+exit 1
