@@ -12,11 +12,12 @@ fetch_caddy() {
     local caddy_url="https://github.com/caddyserver/caddy/releases/download/v${version}/${archive}"
     local dest_path="$cache_dir/caddy"
 
-    if [ -f "$dest_path" ]; then
-        echo -n "cat $dest_path"
-    else
+    # if [ -f "$dest_path" ]; then
+    #     echo -n "cat $dest_path"
+    # else
+        echo "-----> Downloading Caddy from $caddy_url..." >&2
         echo -n "curl -L $caddy_url"
-    fi
+    # fi
 }
 
 mkdir -p $build_dir/bin
