@@ -25,9 +25,11 @@ fetch_caddy() {
         echo "Using cached $output..." | indent >&2
     else
         echo "-----> Downloading from $caddy_url..." >&2
-        curl -o "$output" "$caddy_url"
+        curl -Lo "$output" "$caddy_url"
     fi
     echo "-----> Extracting $output..."
+    echo $dest_dir
+    ls -lh $dest_dir
     cat "$output" | tar xsC "$dest_dir"
 }
 
