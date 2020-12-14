@@ -27,7 +27,7 @@ $(fetch_caddy) | tar xzC $build_dir/bin
 
 caddy_version=$($build_dir/bin/caddy version)
 cp $build_dir/bin/caddy /app/bin/
-cp $build_dir/bin/start-caddy /app/bin/
+cp bin/start-caddy /app/bin/
 echo "-----> Installed ${caddy_version} to /app/bin"
 echo "-----> Installed start-caddy to /app/bin"
 
