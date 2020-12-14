@@ -37,10 +37,14 @@ fetch_caddy() {
 fetch_caddy
 
 mkdir -p $build_dir/bin
-cp $dest_dir/caddy/caddy /app/bin/
-ls $build_dir
-pwd
-ls $(pwd)
+
+echo "putting it in bin..."
+ls -lh $dest_dir
+ls -lh $dest_dir/caddy
+cp $dest_dir/caddy $build_dir/bin
+ls $build_dir/bin
+# pwd
+# ls $(pwd)
 
 
 # caddy_version=$($build_dir/bin/caddy version)
