@@ -33,7 +33,7 @@ The environment variable `CADDY_VERSION` overrides the default caddy version set
 Your app will need to touch `/tmp/app-initialized` when it's ready for traffic, similar to the [nginx buildpack](https://github.com/heroku/heroku-buildpack-nginx/tree/38b77474edc6ac59b463a45e540b0aaec3277b44). See that buildpack also for how to define a Procfile with `bin/start-caddy`.
 
 
-note: current bundled caddy build includes `caddy-l4` and `dnspod`
+note: current bundled caddy build includes `caddy-l4` and `cloudflare` :(
 
 ```bash
 GOOS=linux ./xcaddy build v2.2.1 --with github.com/mholt/caddy-l4 --with github.com/caddy-dns/dnspod
